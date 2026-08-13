@@ -1,0 +1,88 @@
+:root{
+/* ═══ THE FOUR BRAND COLORS — nothing else is ever introduced. ═══ */
+--rk-primary-green:#032819;   /* copy, strokes, backgrounds, anything dark — used instead of black */
+--rk-secondary-green:#0ea073; /* contrast/highlight when primary green isn't enough */
+--rk-accent-gold:#ffbf4d;     /* brand accent color */
+--rk-highlight-red:#ff3e3e;   /* important stuff: badges, important boxes/outlines/headlines/buttons */
+--rk-off-white:#f9f7f2;       /* backgrounds, negative/reverse font color — used instead of white */
+
+/* legacy base aliases (kept so existing references still resolve) */
+--rk-green-dark-base:var(--rk-primary-green);
+--rk-green-base:var(--rk-secondary-green);
+--rk-gold-base:var(--rk-accent-gold);
+--rk-red-base:var(--rk-highlight-red);
+--rk-paper-base:var(--rk-off-white);
+
+/* primary green — lighter/darker steps, generated in oklch to keep the hue (never drifts toward gray) */
+--rk-green-950:var(--rk-primary-green);
+--rk-green-900:color-mix(in oklch, var(--rk-primary-green) 55%, var(--rk-secondary-green) 45%);
+--rk-green-100:color-mix(in oklch, var(--rk-primary-green) 12%, white);
+--rk-green-200:color-mix(in oklch, var(--rk-primary-green) 22%, white);
+
+/* secondary green — lighter/darker steps */
+--rk-green-800:var(--rk-secondary-green);
+--rk-green-700:color-mix(in oklch, var(--rk-secondary-green) 85%, white);
+--rk-green-600:color-mix(in oklch, var(--rk-secondary-green) 65%, white);
+--rk-green-500:color-mix(in oklch, var(--rk-secondary-green) 45%, white);
+
+/* gold — lighter/darker steps */
+--rk-gold-300:color-mix(in oklch, var(--rk-accent-gold) 55%, white);
+--rk-gold-400:color-mix(in oklch, var(--rk-accent-gold) 80%, white);
+--rk-gold-500:var(--rk-accent-gold);
+--rk-gold-600:color-mix(in oklch, var(--rk-accent-gold) 85%, black);
+--rk-gold-700:color-mix(in oklch, var(--rk-accent-gold) 70%, black);
+--rk-gold-800:color-mix(in oklch, var(--rk-accent-gold) 55%, black);
+
+/* highlight red — lighter/darker steps */
+--rk-red-400:color-mix(in oklch, var(--rk-highlight-red) 70%, white);
+--rk-red-500:var(--rk-highlight-red);
+--rk-red-600:color-mix(in oklch, var(--rk-highlight-red) 82%, black);
+--rk-red-700:color-mix(in oklch, var(--rk-highlight-red) 65%, black);
+
+/* paper neutral — lighter/darker steps */
+--rk-paper-100:var(--rk-paper-base);
+--rk-paper-200:color-mix(in oklch, var(--rk-paper-base) 92%, black);
+--rk-paper-300:color-mix(in oklch, var(--rk-paper-base) 80%, black);
+
+/* legacy aliases kept for template compatibility — all resolve to the scales above, never a new hue */
+--rk-ink-900:var(--rk-green-950);
+--rk-ink-700:var(--rk-green-900);
+--rk-green-ink:var(--rk-green-950);
+--rk-olive-700:var(--rk-green-800);
+--rk-olive-500:var(--rk-green-600);
+--rk-tan-400:var(--rk-gold-400);
+--rk-tan-300:var(--rk-gold-300);
+
+/* semantic aliases */
+--surface-page:var(--rk-paper-100);
+--surface-raised:var(--rk-paper-100);   /* never pure white — off-white stands in for raised surfaces too */
+--surface-sunken:var(--rk-paper-200);
+--surface-dark:var(--rk-gold-500);   /* accent full-bleed surface — primary green is never a background */
+--surface-dark-raised:var(--rk-gold-600);
+
+--text-primary:var(--rk-green-950);
+--text-secondary:var(--rk-green-800);
+--text-on-dark:var(--rk-green-950);   /* surfaces are gold now, so "on-dark" text is dark green, not paper */
+--text-on-gold:var(--rk-green-950);
+--text-link:var(--rk-green-800);
+--text-link-hover:var(--rk-green-700);
+
+--brand-primary:var(--rk-green-950);
+--brand-primary-hover:var(--rk-green-900);
+--brand-accent:var(--rk-gold-500);
+--brand-accent-hover:var(--rk-gold-600);
+--brand-highlight:var(--rk-red-500);
+--brand-highlight-hover:var(--rk-red-600);
+
+--border-default:var(--rk-green-200);
+--border-strong:var(--rk-green-950);
+--border-on-dark:rgba(247,244,238,0.28);
+
+--status-success:var(--rk-green-800);
+--status-warning:var(--brand-accent);
+--status-danger:var(--rk-red-500);
+--status-danger-hover:var(--rk-red-600);
+--status-info:var(--rk-green-700);
+
+--focus-ring:var(--rk-gold-600);
+}
