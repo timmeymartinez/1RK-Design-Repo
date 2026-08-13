@@ -66,7 +66,6 @@ assets/logo/
   1rk-mark.svg            Я/K monogram, dark green
   1rk-mark-gold.svg        Я/K monogram, gold
   1rk-mark-red.svg          Я/K monogram, red
-  1rk-wordmark.svg          wordmark only (no mark)
   1rk-mark-on-gold.png      flattened raster, mark on gold background
 tokens/
   colors.css      the five brand colors + derived scales + semantic aliases
