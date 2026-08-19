@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<!-- @template name="Briefing Deck" description="16:9 presentation shell for mission briefings, town-halls, and recruiting decks." -->
+<helmet><script src="./ds-base.js"></script></helmet>
+<x-import component-from-global-scope="deck-stage" from="./deck-stage.js" width="1920" height="1080" hint-size="100%,100%">
+
+<section data-label="Title" style="width:1920px;height:1080px;background:var(--brand-accent);display:flex;flex-direction:column;align-items:center;justify-content:center;font-family:var(--font-body);position:relative;overflow:hidden">
+<img src="../../assets/logo/1rk-primary.svg" style="height:238px;margin-bottom:36px;position:relative">
+<div style="font-family:var(--font-body);font-weight:700;text-transform:uppercase;color:var(--text-on-gold);font-size:88px;letter-spacing:0.04em;position:relative">OPERATION SILENT THUNDER</div>
+<div style="color:var(--text-on-dark);font-size:44px;font-weight:400;margin-top:16px;letter-spacing:var(--tracking-wider);text-transform:uppercase;opacity:.8;position:relative">Mission Briefing — 1st Reforger Korps</div>
+</section>
+
+<section data-label="Situation" style="width:1920px;height:1080px;background:var(--surface-page);display:flex;flex-direction:column;padding:100px 120px;font-family:var(--font-body)">
+<div style="border-bottom:4px solid var(--border-strong);padding-bottom:20px;margin-bottom:48px;display:flex;justify-content:space-between;align-items:baseline">
+<div style="font-size:44px;font-weight:700;text-transform:uppercase;letter-spacing:0.04em;color:var(--text-primary)">Situation</div>
+<div style="font-size:20px;color:var(--text-secondary)">REF: 1RK-SOC/1RK-OST-01</div>
+</div>
+<div style="display:flex;gap:80px;align-items:flex-start;flex:1">
+<div style="font-size:30px;line-height:1.6;max-width:760px;color:var(--text-primary)">Enemy forces are conducting regular supply and armored movements from the port at Saint Pierre toward Montignac. A rapid reaction force is stationed in Durras, response time under ten minutes.</div>
+<div style="width:520px;flex-shrink:0">
+<x-import component-from-global-scope="Ds1stReforgerKorpsDesignSystem_919048.IntelPhoto" src="../../assets/photos/recon-overwatch.jpg" caption="Substation overwatch" grid-ref="091" hint-size="100%,340px"></x-import>
+</div>
+</div>
+</section>
+
+<section data-label="Rules of Engagement" style="width:1920px;height:1080px;background:var(--surface-page);display:flex;flex-direction:column;padding:100px 120px;font-family:var(--font-body)">
+<div style="border-bottom:4px solid var(--border-strong);padding-bottom:20px;margin-bottom:48px;font-size:44px;font-weight:700;text-transform:uppercase;letter-spacing:0.04em;color:var(--text-primary)">Rules of Engagement</div>
+<ul style="display:flex;flex-direction:column;gap:20px;font-size:34px;color:var(--text-primary);margin:0;padding-left:44px">
+<li>Return fire when engaged</li>
+<li>Engage isolated enemy only when risk of compromise is very low</li>
+<li>Avoid sustained engagements</li>
+<li>Civilian casualties and infrastructure damage are strictly prohibited</li>
+</ul>
+</section>
+
+<section data-label="Call Signs" style="width:1920px;height:1080px;background:var(--surface-page);display:flex;flex-direction:column;padding:100px 120px;font-family:var(--font-body)">
+<div style="border-bottom:4px solid var(--border-strong);padding-bottom:20px;margin-bottom:48px;font-size:44px;font-weight:700;text-transform:uppercase;letter-spacing:0.04em;color:var(--text-primary)">Call Signs &amp; Frequencies</div>
+<table style="width:100%;border-collapse:collapse;font-size:32px">
+<thead><tr><th style="text-align:left;padding:16px 20px;text-transform:uppercase;letter-spacing:var(--tracking-wide);border-bottom:3px solid var(--border-strong);color:var(--text-primary)">Callsign</th><th style="text-align:left;padding:16px 20px;text-transform:uppercase;letter-spacing:var(--tracking-wide);border-bottom:3px solid var(--border-strong);color:var(--text-primary)">Role</th><th style="text-align:left;padding:16px 20px;text-transform:uppercase;letter-spacing:var(--tracking-wide);border-bottom:3px solid var(--border-strong);color:var(--text-primary)">Freq (MHz)</th></tr></thead>
+<tbody>
+<tr><td style="padding:16px 20px;color:var(--text-primary)">Echo 0</td><td style="padding:16px 20px;color:var(--text-primary)">Element Lead</td><td style="padding:16px 20px;color:var(--text-primary)">38.55</td></tr>
+<tr style="background:var(--rk-paper-200)"><td style="padding:16px 20px;color:var(--text-primary)">Echo 0-1</td><td style="padding:16px 20px;color:var(--text-primary)">Recon / Overwatch</td><td style="padding:16px 20px;color:var(--text-primary)">38.55</td></tr>
+<tr><td style="padding:16px 20px;color:var(--text-primary)">Oscar 0</td><td style="padding:16px 20px;color:var(--text-primary)">Fire Support</td><td style="padding:16px 20px;color:var(--text-primary)">41.20</td></tr>
+<tr style="background:var(--rk-paper-200)"><td style="padding:16px 20px;color:var(--text-primary)">Alpha 0</td><td style="padding:16px 20px;color:var(--text-primary)">Quick Reaction Force</td><td style="padding:16px 20px;color:var(--text-primary)">41.20</td></tr>
+</tbody>
+</table>
+</section>
+
+<section data-label="Commander's Note" style="width:1920px;height:1080px;background:var(--surface-page);display:flex;flex-direction:column;padding:100px 120px;font-family:var(--font-body)">
+<div style="border-bottom:4px solid var(--border-strong);padding-bottom:20px;margin-bottom:48px;font-size:44px;font-weight:700;text-transform:uppercase;letter-spacing:0.04em;color:var(--text-primary)">Commander's Note</div>
+<div style="flex:1;display:flex;align-items:center;--text-base:32px;--text-md:36px">
+<x-import component-from-global-scope="Ds1stReforgerKorpsDesignSystem_919048.Callout" tone="danger" title="Radio Discipline" hint-size="100%,300px">Radio discipline is mandatory beyond grid line KILO. Non-essential traffic on the primary net will be treated as a breach of noise discipline. If contact is broken for longer than fifteen minutes, Echo 0 assumes OPCON has been lost and reverts to the fallback rally point at grid 084-091.</x-import>
+</div>
+</section>
+
+<section data-label="Pre-Mission Brief" style="width:1920px;height:1080px;background:var(--surface-page);display:flex;flex-direction:column;align-items:center;justify-content:center;padding:0 220px;font-family:var(--font-body)">
+<blockquote style="margin:0;padding:8px 0 8px 36px;border-left:6px solid var(--border-strong);font-style:italic;font-size:52px;line-height:1.4;color:var(--text-primary)">"Get in, get eyes on, get out. No heroics."<cite style="display:block;margin-top:20px;font-style:normal;text-transform:uppercase;letter-spacing:var(--tracking-wide);font-size:28px;color:var(--text-secondary)">— Oscar 0, Pre-Mission Brief</cite></blockquote>
+</section>
+
+<section data-label="References" style="width:1920px;height:1080px;background:var(--surface-page);display:flex;flex-direction:column;padding:100px 120px;font-family:var(--font-body)">
+<div style="border-bottom:4px solid var(--border-strong);padding-bottom:20px;margin-bottom:48px;font-size:44px;font-weight:700;text-transform:uppercase;letter-spacing:0.04em;color:var(--text-primary)">References</div>
+<ol style="display:flex;flex-direction:column;gap:24px;font-size:34px;color:var(--text-primary);margin:0;padding-left:44px">
+<li>Standard Operating Procedures — <a href="#" style="color:var(--text-link)">SOP 02, Patrol Roles &amp; Standard Movement</a></li>
+<li style="--text-xs:30px;--tracking-widest:0.15em"><span style="display:inline-flex;align-items:center;gap:16px">Rules of Engagement Card <x-import component-from-global-scope="Ds1stReforgerKorpsDesignSystem_919048.Badge" tone="green" hint-size="190px,52px">On File</x-import></span></li>
+<li>Grid Reference Sheet — Erquy Sector</li>
+</ol>
+</section>
+
+<section data-label="Closing" style="width:1920px;height:1080px;background:var(--surface-page);display:flex;flex-direction:column;align-items:center;justify-content:center;font-family:var(--font-body)">
+<div style="font-family:var(--font-body);font-weight:700;text-transform:uppercase;color:var(--text-primary);font-size:48px;letter-spacing:0.04em">"THUNDER" — MISSION ACCOMPLISHED</div>
+<div style="color:var(--text-primary);font-size:44px;margin-top:20px">1ST REFORGER KORPS · SPECIAL OPERATIONS COMMAND</div>
+</section>
+
+</x-import>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:960,&quot;height&quot;:540}}"></script>
+</body>
+</html>

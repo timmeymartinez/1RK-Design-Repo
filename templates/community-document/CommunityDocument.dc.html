@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<!-- @template name="Community Document" description="Flowing doc for briefings, AARs, debriefs, and SOPs — letterhead, classification stamp, numbered sections." -->
+<helmet>
+<script src="./ds-base.js"></script>
+<script src="./doc-page.js"></script>
+<style>doc-page:not(:defined){visibility:hidden}
+.rk-doc h2{font-family:var(--font-body);font-size:var(--text-base);font-weight:600;letter-spacing:var(--tracking-wider);text-transform:uppercase;text-decoration:underline;text-underline-offset:4px;color:var(--text-primary);margin:26px 0 10px}
+.rk-doc p{font-family:var(--font-body);font-size:var(--text-base);line-height:var(--leading-normal);color:var(--text-primary);margin:0 0 14px}
+.rk-doc li{font-family:var(--font-body);font-size:var(--text-base);line-height:var(--leading-normal);color:var(--text-primary)}
+.rk-doc ol,.rk-doc ul{margin:0 0 14px;padding-left:0;list-style-position:inside}
+.rk-doc table{width:100%;border-collapse:collapse;margin:0 0 14px;font-family:var(--font-body);font-size:var(--text-sm)}
+.rk-doc th{text-align:left;padding:8px 10px;text-transform:uppercase;letter-spacing:var(--tracking-wide);font-weight:600;border-bottom:2px solid var(--border-strong);color:var(--text-primary)}
+.rk-doc td{padding:8px 10px;color:var(--text-primary)}
+.rk-doc tbody tr:nth-child(even){background:var(--rk-paper-200)}
+.rk-doc blockquote{font-family:var(--font-body);margin:0 0 14px;padding:2px 0 2px 20px;border-left:4px solid var(--border-strong);font-style:italic;font-size:var(--text-lg);color:var(--text-primary)}
+.rk-doc blockquote cite{font-family:var(--font-body);display:block;margin-top:6px;font-style:normal;text-transform:uppercase;letter-spacing:var(--tracking-wide);font-size:var(--text-sm);color:var(--text-secondary)}
+.rk-doc a{font-family:var(--font-body);color:var(--text-link);text-decoration:underline;text-underline-offset:3px}
+.rk-doc a:hover{color:var(--text-link-hover)}
+</style>
+</helmet>
+<doc-page margin="0.85in">
+<div slot="header" style="display:flex;justify-content:space-between;align-items:flex-end;border-bottom:3px solid var(--rk-ink-900);padding-bottom:10px;font-family:var(--font-body)">
+<div style="font-size:12px;line-height:1.5;color:var(--text-secondary)">1ST REFORGER KORPS<br>SPECIAL OPERATIONS COMMAND<br><span style="display:inline-block;margin-top:4px"><x-import component-from-global-scope="Ds1stReforgerKorpsDesignSystem_919048.Badge" tone="danger" hint-size="90px,20px">Confidential</x-import></span></div>
+<img src="../../assets/logo/1rk-primary.svg" style="height:96px">
+<div style="font-size:var(--text-sm);line-height:1.5;color:var(--text-secondary);text-align:right">REF: 1RK-SOC/1RK-OST-01<br>DATE: 24/03/1986<br>LOCATION: Erquy, Everon</div>
+</div>
+<div slot="footer" style="display:flex;justify-content:space-between;border-top:2px solid var(--rk-ink-900);padding-top:8px;font-family:var(--font-body);font-size:var(--text-xs);letter-spacing:var(--tracking-wider);color:var(--text-primary)">
+<span>1ST REFORGER KORPS · SOC</span><span>PAGE 1 OF 2</span>
+</div>
+<div class="rk-doc">
+<h1 style="font-family:var(--font-body);font-weight:700;font-size:var(--text-2xl);letter-spacing:var(--tracking-wide);text-transform:uppercase;color:var(--text-primary);text-align:center;margin:20px 0 2px">Mission Briefing</h1>
+<h1 style="font-family:var(--font-body);font-weight:700;font-size:var(--text-xl);color:var(--text-primary);text-align:center;margin:0 0 24px">Operation Silent Thunder</h1>
+<h2>Situation</h2>
+<p>Enemy forces are conducting regular supply and armored movements from the port at Saint Pierre along the north-western MSR toward Montignac. The town itself is lightly held, but a rapid reaction force is stationed in Durras with an estimated response time of under ten minutes.</p>
+<h2>Mission</h2>
+<p>Echo 0 infiltrates via WHISKEY, clears the radio tower, establishes an observation post, and conducts target acquisition on enemy logistics and armored assets. Targets will be passed by grid reference to Oscar 0 for artillery engagement.</p>
+<h2>Commander's Intent</h2>
+<p>The intent is to disrupt enemy logistics through precision indirect fires while avoiding decisive engagement. Stealth and disciplined observation are critical.</p>
+<h2>Rules of Engagement</h2>
+<ul>
+<li>Return fire when engaged</li>
+<li>Engage isolated enemy only when risk of compromise is very low</li>
+<li>Avoid sustained engagements</li>
+<li>Civilian casualties and infrastructure damage are strictly prohibited</li>
+</ul>
+<h2>Equipment</h2>
+<ul>
+<li>Suppressed weapons (mandatory)</li>
+<li>Demolition charges with triggers</li>
+<li>Scopes (recommended)</li>
+</ul>
+<h2>Call Signs &amp; Frequencies</h2>
+<table>
+<thead><tr><th>Callsign</th><th>Role</th><th>Freq (MHz)</th></tr></thead>
+<tbody>
+<tr><td>Echo 0</td><td>Element Lead</td><td>38.55</td></tr>
+<tr><td>Echo 0-1</td><td>Recon / Overwatch</td><td>38.55</td></tr>
+<tr><td>Oscar 0</td><td>Fire Support</td><td>41.20</td></tr>
+<tr><td>Alpha 0</td><td>Quick Reaction Force</td><td>41.20</td></tr>
+</tbody>
+</table>
+<x-import component-from-global-scope="Ds1stReforgerKorpsDesignSystem_919048.Callout" tone="danger" title="Commander's Note" hint-size="100%,110px">Radio discipline is mandatory beyond grid line KILO. Non-essential traffic on the primary net will be treated as a breach of noise discipline. If contact is broken for longer than fifteen minutes, Echo 0 assumes OPCON has been lost and reverts to the fallback rally point at grid 084-091.</x-import>
+<h2 style="margin-top:26px">Pre-Mission Brief</h2>
+<blockquote>"Get in, get eyes on, get out. No heroics."<cite>— Oscar 0</cite></blockquote>
+<h2>References</h2>
+<ol>
+<li>Standard Operating Procedures — <a href="#">SOP 02, Patrol Roles &amp; Standard Movement</a></li>
+<li>Rules of Engagement Card <x-import component-from-global-scope="Ds1stReforgerKorpsDesignSystem_919048.Badge" tone="green" hint-size="70px,20px">On File</x-import></li>
+<li>Grid Reference Sheet — Erquy Sector</li>
+</ol>
+<h2>Annex A — Recon Imagery</h2>
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:14px">
+<x-import component-from-global-scope="Ds1stReforgerKorpsDesignSystem_919048.IntelPhoto" src="../../assets/photos/recon-checkpoint.jpg" caption="Checkpoint, Montignac Rd" grid-ref="084" hint-size="100%,180px"></x-import>
+<x-import component-from-global-scope="Ds1stReforgerKorpsDesignSystem_919048.IntelPhoto" src="../../assets/photos/recon-overwatch.jpg" caption="Overwatch toward substation" grid-ref="091" hint-size="100%,180px"></x-import>
+</div>
+</div>
+</doc-page>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:850,&quot;height&quot;:1100}}"></script>
+</body>
+</html>
