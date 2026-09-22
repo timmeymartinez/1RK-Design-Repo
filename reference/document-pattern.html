@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>1RK — Document pattern reference</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!--
+  Static, portable copy of the exact markup/CSS used by the real
+  "Mission Document" template in the Claude Design project
+  (templates/mission-document/MissionDocument.dc.html). That template
+  mounts via a <doc-page> web component for real print pagination —
+  this file drops that dependency and hand-lays the header/footer once,
+  so it opens and reads correctly in any plain browser with no build
+  step. Copy sections out of THIS FILE's source, don't re-derive the
+  look from design.md's prose.
+
+  Read alongside design.md's "Document anatomy" and "Components"
+  sections. If you have access to the live Claude Design project
+  (https://claude.ai/design/p/9190487a-80da-492a-aa6d-cc87c8e2ba04),
+  prefer reading templates/mission-document/ there directly — it's the
+  source this file was copied from.
+-->
+<link rel="stylesheet" href="../tokens/fonts.css">
+<link rel="stylesheet" href="../tokens/colors.css">
+<link rel="stylesheet" href="../tokens/typography.css">
+<link rel="stylesheet" href="../tokens/spacing.css">
+<style>
+  * { box-sizing: border-box; }
+  html { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  body {
+    margin: 0;
+    background: #e9e7e2; /* desk backdrop behind the sheet — not a brand color, screen-only */
+    font-family: var(--font-body);
+  }
+  .sheet {
+    max-width: 800px;
+    margin: 40px auto;
+    background: var(--surface-page);
+    padding: 0.85in;
+  }
+  @media print {
+    body { background: none; }
+    .sheet { margin: 0; max-width: none; }
+  }
+
+  /* ─── Header / footer — exact letterhead pattern ─── */
+  .doc-header {
+    display: flex; justify-content: space-between; align-items: flex-end;
+    border-bottom: var(--border-width-heavy) solid var(--rk-ink-900);
+    padding-bottom: 10px;
+  }
+  .doc-header .unit { font-size: 12px; line-height: 1.5; color: var(--text-secondary); }
+  .doc-header .unit .classification { color: var(--status-danger); }
+  .doc-header img { height: 48px; }
+  .doc-header .meta { font-size: var(--text-sm); line-height: 1.5; color: var(--text-secondary); text-align: right; }
+
+  .doc-footer {
+    display: flex; justify-content: space-between;
+    border-top: var(--border-width-thick) solid var(--rk-ink-900);
+    padding-top: 8px; margin-top: 26px;
+    font-size: var(--text-xs); letter-spacing: var(--tracking-wider); color: var(--text-primary);
+  }
+
+  /* ─── Title block ─── */
+  .doc-title {
+    font-weight: var(--weight-bold); font-size: var(--text-2xl);
+    letter-spacing: var(--tracking-wide); text-transform: uppercase;
+    color: var(--text-primary); text-align: center; margin: 20px 0 2px;
+  }
+  .doc-subtitle {
+    /* only add this line when the doc has a specific proper name —
+       sentence case, NOT uppercase, unlike .doc-title above */
+    font-weight: var(--weight-bold); font-size: var(--text-xl);
+    color: var(--text-primary); text-align: center; margin: 0 0 24px;
+  }
+
+  /* ─── Section heading — same font-size as body, weight+underline+tracking only ─── */
+  .rk-doc h2 {
+    font-size: var(--text-base); font-weight: var(--weight-semibold);
+    letter-spacing: var(--tracking-wider); text-transform: uppercase;
+    text-decoration: underline; text-underline-offset: 4px;
+    color: var(--text-primary); margin: 26px 0 10px;
+  }
+  .rk-doc p { font-size: var(--text-base); line-height: var(--leading-normal); color: var(--text-primary); margin: 0 0 14px; }
+  .rk-doc li { font-size: var(--text-base); line-height: var(--leading-normal); color: var(--text-primary); }
+  .rk-doc ul, .rk-doc ol { margin: 0 0 14px; padding-left: 22px; } /* default markers — no custom bullets */
+
+  /* ─── Callout — dark tone fill, off-white text in every tone ─── */
+  .callout { padding: var(--space-4); color: var(--rk-off-white); margin: 0 0 14px; }
+  .callout.info { background: var(--rk-gold-700); }
+  .callout.warning { background: var(--rk-gold-600); }
+  .callout.danger { background: var(--status-danger); }
+  .callout .callout-title {
+    font-weight: var(--weight-bold); text-transform: uppercase;
+    letter-spacing: var(--tracking-wide); font-size: var(--text-md);
+    color: var(--rk-off-white); margin-bottom: 6px;
+  }
+  .callout .callout-body { font-size: var(--text-base); line-height: var(--leading-normal); color: var(--rk-off-white); }
+
+  /* ─── Badge — outlined only, never solid ─── */
+  .badge {
+    display: inline-block; font-size: var(--text-xs); font-weight: var(--weight-bold);
+    letter-spacing: var(--tracking-widest); text-transform: uppercase;
+    padding: 1px 4px; border-radius: var(--radius-sm);
+    background: transparent; border: 1.5px solid currentColor;
+  }
+  .badge.neutral { color: var(--text-primary); }
+  .badge.green { color: var(--rk-secondary-green); }
+  .badge.gold { color: var(--brand-accent); }
+  .badge.danger { color: var(--status-danger); }
+
+  /* ─── Card — flat container, light or dark(gold) variant, no border/shadow ─── */
+  .card { padding: var(--space-5); }
+  .card.light { background: var(--rk-paper-200); color: var(--text-primary); }
+  .card.dark { background: var(--surface-dark); color: var(--text-on-dark); }
+  .card pre { margin: 0; font-family: var(--font-body); font-size: var(--text-sm); line-height: var(--leading-snug); color: inherit; white-space: pre-wrap; }
+
+  /* ─── StatusStamp — rubber-stamp mark, outlined ─── */
+  .stamp {
+    display: inline-block; font-weight: var(--weight-bold); font-size: var(--text-sm);
+    letter-spacing: var(--tracking-widest); text-transform: uppercase;
+    border: 3px solid currentColor; padding: 4px 14px;
+  }
+</style>
+</head>
+<body>
+<div class="sheet">
+
+  <div class="doc-header">
+    <div class="unit">1ST REFORGER KORPS<br>SPECIAL OPERATIONS COMMAND<br><span class="classification">CONFIDENTIAL</span></div>
+    <img src="../assets/logo/1rk-primary.svg" alt="1RK">
+    <div class="meta">REF: 1RK-SOC/1RK-OST-01<br>DATE: 24/03/1986<br>LOCATION: Erquy, Everon</div>
+  </div>
+
+  <div class="rk-doc">
+    <div class="doc-title">Mission Briefing</div>
+    <div class="doc-subtitle">Operation Silent Thunder</div>
+
+    <h2>Situation</h2>
+    <p>Enemy forces are conducting regular supply and armored movements from the port at Saint Pierre along the north-western MSR toward Montignac. The town itself is lightly held, but a rapid reaction force is stationed in Durras with an estimated response time of under ten minutes.</p>
+
+    <h2>Mission</h2>
+    <p>Echo 0 infiltrates via WHISKEY, clears the radio tower, establishes an observation post, and conducts target acquisition on enemy logistics and armored assets. Targets will be passed by grid reference to Oscar 0 for artillery engagement.</p>
+
+    <h2>Rules of Engagement</h2>
+    <ul>
+      <li>Return fire when engaged</li>
+      <li>Engage isolated enemy only when risk of compromise is very low</li>
+      <li>Avoid sustained engagements</li>
+      <li>Civilian casualties and infrastructure damage are strictly prohibited</li>
+    </ul>
+
+    <h2>Component specimens — for reference only, delete in a real document</h2>
+    <p>
+      <span class="badge danger">Confidential</span>
+      <span class="badge gold">Echo 0-1</span>
+      <span class="badge green">Active</span>
+      <span class="badge neutral">Archived</span>
+      &nbsp; <span class="stamp" style="color:var(--status-danger)">Confidential</span>
+    </p>
+
+    <div class="callout info">
+      <div class="callout-title">Fireteam Leader Script</div>
+      <div class="callout-body">&ldquo;Keep feedback brief and constructive.&rdquo; — info-tone callout: dark gold fill (<code>--rk-gold-700</code>), off-white text. Reserve callouts for genuinely long asides; a one-liner should just be a plain sentence or a Badge.</div>
+    </div>
+
+    <div class="callout danger">
+      <div class="callout-title">Rules of Engagement</div>
+      <div class="callout-body">Civilian casualties and infrastructure damage are strictly prohibited. — danger-tone callout: <code>--status-danger</code> fill, off-white text.</div>
+    </div>
+
+    <div class="card light">
+      <pre># EXAMPLE CODE / TEMPLATE BLOCK
+**Field:**
+**Field:**</pre>
+    </div>
+    <p style="font-size:var(--text-xs);color:var(--text-secondary)">↑ Card, light variant (<code>--rk-paper-200</code>) — this is what a "code block" / copy-paste template box should be. A dark/gold Card variant exists too (<code>--surface-dark</code>) but is rarely used inside a paper document.</p>
+  </div>
+
+  <div class="doc-footer">
+    <span>1ST REFORGER KORPS &middot; SOC</span><span>PAGE 1 OF 1</span>
+  </div>
+
+</div>
+</body>
+</html>
